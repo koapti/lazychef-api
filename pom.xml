@@ -6,7 +6,7 @@
 
   <groupId>com.koapti.lazychef.api</groupId>
   <artifactId>lazychef-api</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.3</version>
 
   <name>lazychef-api</name>
 
@@ -129,7 +129,7 @@
                 </supportingFilesToGenerate>
                 <configOptions>
                   <additionalModelTypeAnnotations>@lombok.AllArgsConstructor(staticName="of") @lombok.Builder @lombok.NoArgsConstructor</additionalModelTypeAnnotations>
-                  <delegatePattern>false</delegatePattern>
+                  <delegatePattern>true</delegatePattern>
                 </configOptions>
               </configuration>
             </execution>

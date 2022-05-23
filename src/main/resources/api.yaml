@@ -36,8 +36,10 @@ paths:
       parameters:
         - in: path
           name: id
+          description: The ID of the specific user for which you want details.
+          example: 1
           schema:
-            type: integer
+            type: string
           required: true
       responses:
         '200':
@@ -52,8 +54,10 @@ paths:
       parameters:
         - in: path
           name: id
+          description: The ID of the specific user witch you want delete.
+          example: 1
           schema:
-            type: integer
+            type: string
           required: true
       responses:
         '200':
@@ -83,8 +87,10 @@ paths:
       parameters:
         - in: path
           name: id
+          description: The ID of the specific food you want to delete.
+          example: 1
           schema:
-            type: integer
+            type: string
           required: true
       responses:
         '200':
@@ -115,8 +121,10 @@ paths:
       parameters:
         - in: path
           name: id
+          description: The ID of the specific order for which you want details.
+          example: 1
           schema:
-            type: integer
+            type: string
           required: true
       responses:
         '200':
@@ -138,8 +146,10 @@ paths:
       parameters:
         - in: path
           name: id
+          description: The ID of the specific order which you want to edit.
+          example: 1
           schema:
-            type: integer
+            type: string
           required: true
       responses:
         '200':
@@ -160,8 +170,10 @@ paths:
       parameters:
         - in: path
           name: id
+          description: The ID of the specific order-food which you want edit.
+          example: 1
           schema:
-            type: integer
+            type: string
           required: true
       responses:
         '200':
