@@ -97,6 +97,11 @@
       <artifactId>springfox-swagger2</artifactId>
       <version>${springfox.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.20</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -123,6 +128,7 @@
                   ApiUtil.java
                 </supportingFilesToGenerate>
                 <configOptions>
+                  <additionalModelTypeAnnotations>@lombok.AllArgsConstructor @lombok.Builder @lombok.NoArgsConstructor</additionalModelTypeAnnotations>
                   <delegatePattern>true</delegatePattern>
                 </configOptions>
               </configuration>
