@@ -185,6 +185,8 @@ components:
     User:
       type: object
       properties:
+        id:
+          type: integer
         login:
           type: string
         password:
