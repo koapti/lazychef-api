@@ -197,6 +197,12 @@ components:
           type: string
         role:
           $ref: '#/components/schemas/Role'
+      required:
+        - login
+        - password
+        - name
+        - surname
+        - role
     UsersList:
       type: object
       properties:
