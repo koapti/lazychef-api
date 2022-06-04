@@ -29,6 +29,10 @@ paths:
       responses:
         '201':
           description: User created successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /users/{id}:
     get:
       operationId: getUserDetails
@@ -77,9 +81,20 @@ paths:
     post:
       operationId: createFood
       description: Create food
+      requestBody:
+        description: Food details to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Food'
       responses:
         '201':
           description: Food created successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /food/{id}:
     delete:
       operationId: deleteFood
@@ -94,6 +109,44 @@ paths:
       responses:
         '200':
           description: Food deleted successfully
+    get:
+      operationId: getFoodDetails
+      description: Get food details
+      parameters:
+        - in: path
+          name: id
+          description: The ID of the specific food for which you want details.
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Food details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Food'
+    put:
+      operationId: updateFood
+      description: Update food
+      requestBody:
+        description: Food details to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Food'
+      parameters:
+        - in: path
+          name: id
+          description: The ID of the specific food which you want to edit.
+          example: 1
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Food updated successfully
 
   #  order API
   /order:
@@ -120,6 +173,10 @@ paths:
       responses:
         '201':
           description: Order created successfully
+          content:
+            application/json:
+              schema:
+                type: string
   /order/{id}:
     get:
       operationId: getOrderDetails
@@ -270,6 +327,7 @@ components:
         - READY
         - IN_PROGRESS
         - NOT_READY
+      default: NOT_READY
 
     #   ORDERS-FOOD
     OrdersFood:
@@ -282,12 +340,15 @@ components:
         FoodState:
           $ref: '#/components/schemas/FoodState'
         food:
-          $ref: '#/components/schemas/Food'
+          type:
+            string
         order:
-          $ref: '#/components/schemas/Order'
+          type:
+            string
     FoodState:
       type: string
       enum:
         - READY
         - IN_PROGRESS
         - NOT_READY
+      default: NOT_READY
