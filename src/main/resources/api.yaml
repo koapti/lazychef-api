@@ -88,7 +88,6 @@ paths:
         - in: path
           name: id
           description: The ID of the specific food you want to delete.
-          example: 1
           schema:
             type: string
           required: true
@@ -111,6 +110,13 @@ paths:
     post:
       operationId: createOrder
       description: Create order
+      requestBody:
+        description: Order details to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
       responses:
         '201':
           description: Order created successfully
@@ -122,7 +128,6 @@ paths:
         - in: path
           name: id
           description: The ID of the specific order for which you want details.
-          example: 1
           schema:
             type: string
           required: true

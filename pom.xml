@@ -6,7 +6,7 @@
 
   <groupId>com.koapti.lazychef.api</groupId>
   <artifactId>lazychef-api</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.7</version>
 
   <name>lazychef-api</name>
 
@@ -121,6 +121,7 @@
               <configuration>
                 <inputSpec>${project.basedir}/src/main/resources/api.yaml</inputSpec>
                 <output>${project.build.directory}/generated-sources</output>
+                <library>spring-boot</library>
                 <generatorName>spring</generatorName>
                 <apiPackage>com.koapti.lazychef.api</apiPackage>
                 <modelPackage>com.koapti.lazychef.api.model</modelPackage>
@@ -130,6 +131,7 @@
                 <configOptions>
                   <additionalModelTypeAnnotations>@lombok.AllArgsConstructor(staticName="of") @lombok.Builder @lombok.NoArgsConstructor</additionalModelTypeAnnotations>
                   <delegatePattern>true</delegatePattern>
+                  <interfaceOnly>true</interfaceOnly>
                 </configOptions>
               </configuration>
             </execution>
