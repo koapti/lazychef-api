@@ -33,6 +33,12 @@ paths:
             application/json:
               schema:
                 type: string
+        '409':
+          description: User with this personal data already exists.
+          content:
+            application/json:
+              schema:
+                type: string
   /users/{id}:
     get:
       operationId: getUserDetails
@@ -52,6 +58,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+        '404':
+          description: User with this id was not found.
+          content:
+            application/json:
+              schema:
+                type: string
     delete:
       operationId: deleteUser
       description: Delete user
@@ -95,6 +107,12 @@ paths:
             application/json:
               schema:
                 type: string
+        '409':
+          description: Food with this name already exists.
+          content:
+            application/json:
+              schema:
+                type: string
   /food/{id}:
     delete:
       operationId: deleteFood
@@ -126,6 +144,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Food'
+        '404':
+          description: Food with this id was not found.
+          content:
+            application/json:
+              schema:
+                type: string
     put:
       operationId: updateFood
       description: Update food
@@ -195,6 +219,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Order'
+        '404':
+          description: Order with this id was not found.
+          content:
+            application/json:
+              schema:
+                type: string
     put:
       operationId: updateOrder
       description: Update order
@@ -291,6 +321,10 @@ components:
           type: string
         type:
           $ref: '#/components/schemas/FoodType'
+      required:
+        - cost
+        - name
+        - type
     FoodList:
       type: object
       properties:
@@ -314,6 +348,8 @@ components:
           $ref: '#/components/schemas/OrderState'
         tableNr:
           type: integer
+      required:
+        - tableNr
     OrderList:
       type: object
       properties:
@@ -339,12 +375,15 @@ components:
           type: string
         FoodState:
           $ref: '#/components/schemas/FoodState'
-        food:
+        foodId:
           type:
             string
-        order:
+        orderId:
           type:
             string
+      required:
+        - foodId
+        - orderId
     FoodState:
       type: string
       enum:
