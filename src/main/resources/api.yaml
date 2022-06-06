@@ -248,12 +248,41 @@ paths:
           description: Order updated successfully
 
   #  order-food API
+  /orders-food:
+    post:
+      operationId: createOrdersFood
+      description: Create orders-food connection
+      requestBody:
+        description: Orders-food connection details.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdersFood'
+      responses:
+        '200':
+          description: OrdersFood created successfully
+          content:
+            application/json:
+              schema:
+                type: string
+    get:
+      operationId: getOrdersFood list
+      description: Get list of orders-food connections
+      responses:
+        '200':
+          description: Order list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdersFoodList'
+
   /orders-food/{id}:
     put:
       operationId: updateOrdersFood
       description: Update food in order
       requestBody:
-        description: Order details details to update food in
+        description: Orders-food connection details.
         required: true
         content:
           application/json:
@@ -270,6 +299,12 @@ paths:
       responses:
         '200':
           description: OrdersFood updated successfully
+        '404':
+          description: OrdersFood with this id was not found.
+          content:
+            application/json:
+              schema:
+                type: string
 
 components:
   schemas:
@@ -391,3 +426,10 @@ components:
         - IN_PROGRESS
         - NOT_READY
       default: NOT_READY
+    OrdersFoodList:
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrdersFood'
