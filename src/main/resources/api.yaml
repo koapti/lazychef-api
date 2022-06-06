@@ -408,14 +408,14 @@ components:
           type: integer
         comments:
           type: string
-        FoodState:
+        foodState:
           $ref: '#/components/schemas/FoodState'
         foodId:
           type:
-            string
+            integer
         orderId:
           type:
-            string
+            integer
       required:
         - foodId
         - orderId
